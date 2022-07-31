@@ -1,5 +1,8 @@
 name: UTNetwork Lobby
 version: '${project.version}'
 main: tk.utnetwork.utnetworklobby.UTNetworkLobby
-authors: [ Tomsoz, Ul1ra_ ]
+authors: [ Ul1ra, Tomsoz ]
 description: The core UTNetwork plugin for the lobby.
+commands:
+  serverselector:
+    description: Command that lets you join available game modes.

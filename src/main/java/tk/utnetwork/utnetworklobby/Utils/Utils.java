@@ -12,8 +12,17 @@ import java.util.HashMap;
 
 public class Utils {
 
+    static UTNetworkLobby plugin;
+
+    public Utils(UTNetworkLobby plugin) {
+        this.plugin = plugin;
+    }
+
     public static String chat(String textToTranslate) {
-        return ChatColor.translateAlternateColorCodes('&', textToTranslate);
+        return plugin.getConfig().getString("prefix") + textToTranslate.replaceAll("%p", getPrimaryColour())
+                .replaceAll("%s", getSecondaryColour())
+                .replaceAll("%t", getTertiaryColour())
+                .replaceAll("&", "§");
     }
 
     public static void log(String logToExecute) {
@@ -39,4 +48,18 @@ public class Utils {
         messages.put(key, response);
         return;
     }
+
+    public static String getPrimaryColour() {
+        return plugin.getConfig().getString("Primary") == null ?
+                "&3" : plugin.getConfig().getString("Primary");
+    }
+    public static String getSecondaryColour() {
+        return plugin.getConfig().getString("Secondary") == null ?
+                "&b" : plugin.getConfig().getString("Secondary");
+    }
+    public static String getTertiaryColour() {
+        return plugin.getConfig().getString("Tertiary") == null ?
+                "&c" : plugin.getConfig().getString("Tertiary");
+    }
+
 }
