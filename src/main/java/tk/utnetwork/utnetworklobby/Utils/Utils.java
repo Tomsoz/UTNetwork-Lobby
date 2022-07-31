@@ -8,6 +8,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import tk.utnetwork.utnetworklobby.UTNetworkLobby;
 
+import java.util.HashMap;
+
 public class Utils {
 
     public static String chat(String textToTranslate) {
@@ -19,19 +21,22 @@ public class Utils {
         Bukkit.getConsoleSender().sendMessage(logToExecute);
     }
 
-    static UTNetworkLobby plugin;
-
-    public Utils(UTNetworkLobby plugin) {
-        this.plugin = plugin;
-    }
-
-    public void Player(Player p ,String serverName, Plugin plugin) {
+    public static void sendPluginMessage(String type, Player p, String server, UTNetworkLobby plugin) {
         ByteArrayDataOutput out = ByteStreams.newDataOutput();
-        out.writeUTF("PlayerCount");
+        out.writeUTF(type);
         out.writeUTF(server);
 
-        p.sendPluginMessage(UTNetworkLobby, "BungeeCord", out.toByteArray());
+        p.sendPluginMessage(plugin, "BungeeCord", out.toByteArray());
         return;
     }
 
+    static HashMap<String, String> messages = new HashMap<>();
+
+    public static String getPluginMessageResponse(String key) {
+        return messages.get(key);
+    }
+    public static void setPluginMessageResponse(String key, String response) {
+        messages.put(key, response);
+        return;
+    }
 }
