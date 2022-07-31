@@ -1,2 +1,2 @@
 # UTNetwork-Lobby
-The core UTNetwork pluginf for the lobby.
+The core UTNetwork plugin for the lobby.
