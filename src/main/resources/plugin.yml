@@ -1,0 +1,5 @@
+name: UTNetwork Lobby
+version: '${project.version}'
+main: tk.utnetwork.utnetworklobby.UTNetworkLobby
+authors: [ Tomsoz, Ul1ra_ ]
+description: The core UTNetwork plugin for the lobby.
