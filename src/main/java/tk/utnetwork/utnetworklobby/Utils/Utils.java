@@ -2,9 +2,7 @@ package tk.utnetwork.utnetworklobby.Utils;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
-import jdk.tools.jlink.plugin.Plugin;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import tk.utnetwork.utnetworklobby.UTNetworkLobby;
 
@@ -50,16 +48,16 @@ public class Utils {
     }
 
     public static String getPrimaryColour() {
-        return plugin.getConfig().getString("Primary") == null ?
-                "&3" : plugin.getConfig().getString("Primary");
+        return plugin.getConfig().getString("colors.primary") == null ?
+                "&3" : plugin.getConfig().getString("colors.primary");
     }
     public static String getSecondaryColour() {
-        return plugin.getConfig().getString("Secondary") == null ?
-                "&b" : plugin.getConfig().getString("Secondary");
+        return plugin.getConfig().getString("colors.secondary") == null ?
+                "&b" : plugin.getConfig().getString("colors.secondary");
     }
     public static String getTertiaryColour() {
-        return plugin.getConfig().getString("Tertiary") == null ?
-                "&c" : plugin.getConfig().getString("Tertiary");
+        return plugin.getConfig().getString("colors.tertiary") == null ?
+                "&c" : plugin.getConfig().getString("colors.tertiary");
     }
 
 }

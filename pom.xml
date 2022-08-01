@@ -9,7 +9,7 @@
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>UTNetwork Lobby</name>
+    <name>UTNetwork-Lobby</name>
 
     <description>The core UTNetwork plugin for the lobby.</description>
     <properties>

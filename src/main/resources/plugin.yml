@@ -1,4 +1,4 @@
-name: UTNetwork Lobby
+name: UTNetwork-Lobby
 version: '${project.version}'
 main: tk.utnetwork.utnetworklobby.UTNetworkLobby
 authors: [ Ul1ra, Tomsoz ]

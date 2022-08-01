@@ -1,3 +1,4 @@
-Primary: "&3"
-Secondary: "&b"
-Tertiary : "&c"
+colors:
+  - primary: "&3"
+  - secondary: "&b"
+  - tertiary : "&c"
