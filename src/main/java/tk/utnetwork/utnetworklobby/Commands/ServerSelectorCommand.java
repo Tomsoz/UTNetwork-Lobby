@@ -66,7 +66,7 @@ public class ServerSelectorCommand implements CommandExecutor {
                 if (i != 10) {
                     if (i != 13) {
                         if (i != 16) {
-                            ItemStack none = new ItemStack(STAINED_GLASS_PANE, (byte)7);
+                            ItemStack none = new ItemStack(STAINED_GLASS_PANE, 1, (byte)7);
                             ItemMeta noneMeta = none.getItemMeta();
                             noneMeta.setDisplayName(Utils.chat("&7"));
                             none.setItemMeta(noneMeta);

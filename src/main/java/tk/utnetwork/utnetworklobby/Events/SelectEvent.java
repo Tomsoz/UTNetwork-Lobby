@@ -23,9 +23,9 @@ public class SelectEvent implements Listener {
             e.setCancelled(true);
             if (e.getSlot() == 10) {
                 p.closeInventory();
-                p.sendMessage(Utils.chat("%p[%sUT%p] Sending you to: &f&lLifeSteal%3."));
+                p.sendMessage(Utils.chat("%p[%sUT%p] Sending you to &fLifeSteal%s."));
                 Utils.sendPluginMessage("Connect", p, "lifesteal", plugin);
-            } else {
+            } else if (e.getSlot() == 13 || e.getSlot() == 16){
                 p.closeInventory();
                 p.sendMessage(Utils.chat("%p[%sUT%p] %tThis mode is currently unavailable, please try again later!"));
 
