@@ -17,7 +17,8 @@ public class Utils {
     }
 
     public static String chat(String textToTranslate) {
-        return plugin.getConfig().getString("prefix") + textToTranslate.replaceAll("%p", getPrimaryColour())
+        return textToTranslate
+                .replaceAll("%p", getPrimaryColour())
                 .replaceAll("%s", getSecondaryColour())
                 .replaceAll("%t", getTertiaryColour())
                 .replaceAll("&", "§");
