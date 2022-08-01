@@ -45,7 +45,7 @@ public class ServerSelectorCommand implements CommandExecutor {
             lore.add(Utils.chat("&8- &7Public Minecraft SMP with the risk"));
             lore.add(Utils.chat(" &8 &7of losing all of your hearts."));
             lore.add("");
-            lore.add(Utils.chat("&8- &7Online: &a" + Utils.getPluginMessageResponse("PlayerCount__lifesteal" + "&8/&a50")));
+            lore.add(Utils.chat("&8- &7Online: &a" + Utils.getPluginMessageResponse("PlayerCount__lifesteal") + "&8/&a50"));
             lore.add("");
             lore.add(Utils.chat("&aClick to connect to &f&lLifeSteal"));
 
