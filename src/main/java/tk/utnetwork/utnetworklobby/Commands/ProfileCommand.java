@@ -27,7 +27,7 @@ public class ProfileCommand implements CommandExecutor {
 
             Inventory inv = null;
             if (p.hasPermission("proxy.tsm")) {
-                inv = Bukkit.createInventory(p, 54, "Profile Settings");
+                inv = Bukkit.createInventory(p, 45, "Profile Settings");
 
                 for (int i = 0; i < 45; i++) {
                     if (i != 10 && i != 13 && i != 16 && i != 28 && i != 31 && i != 34) {
