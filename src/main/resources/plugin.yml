@@ -5,4 +5,10 @@ authors: [ Ul1ra, Tomsoz ]
 description: The core UTNetwork plugin for the lobby.
 commands:
   serverselector:
-    description: Command that lets you join available game modes.
+    description: Command that opens a GUI with available game modes.
+  profile:
+    description: Command that opens a GUI with profile settings.
+  rename:
+    aliases:
+      - irename
+    description: Command that renames the held item of a player.

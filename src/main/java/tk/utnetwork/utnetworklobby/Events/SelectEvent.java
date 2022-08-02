@@ -30,6 +30,8 @@ public class SelectEvent implements Listener {
                 p.sendMessage(Utils.chat("%p[%sUT%p] %tThis mode is currently unavailable, please try again later!"));
 
             }
+        } else if (e.getInventory().getTitle().equalsIgnoreCase("Profile Settings")) {
+            e.setCancelled(true);
         }
 
     }

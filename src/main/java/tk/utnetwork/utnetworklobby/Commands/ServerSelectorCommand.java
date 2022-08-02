@@ -1,5 +1,6 @@
 package tk.utnetwork.utnetworklobby.Commands;
 
+import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -28,11 +29,6 @@ public class ServerSelectorCommand implements CommandExecutor {
         if (commandSender instanceof Player) {
             Player p = (Player) commandSender;
 
-            Utils.sendPluginMessage("PlayerCount", p, "lifesteal", plugin);
-
-            // Utils.sendPluginMessage("PlayerCount", p, "servername", plugin);
-            // to get the response:
-            // Utils.getPluginMessageResponse("PlayerCount__servername);
 
             Inventory inv = Bukkit.createInventory(p, 27, "Server Selector");
 
@@ -45,7 +41,7 @@ public class ServerSelectorCommand implements CommandExecutor {
             lore.add(Utils.chat("&8- &7Public Minecraft SMP with the risk"));
             lore.add(Utils.chat(" &8 &7of losing all of your hearts."));
             lore.add("");
-            lore.add(Utils.chat("&8- &7Online: &a" + Utils.getPluginMessageResponse("PlayerCount__lifesteal") + "&8/&a50"));
+            lore.add(Utils.chat("&8- &7Online: &a") + PlaceholderAPI.setPlaceholders(p, "%premiumvanish_bungeeplayercount@lifesteal%") + Utils.chat("&8/&a50"));
             lore.add("");
             lore.add(Utils.chat("&aClick to connect to &f&lLifeSteal"));
 

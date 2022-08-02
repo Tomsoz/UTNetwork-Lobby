@@ -1,9 +1,9 @@
 package tk.utnetwork.utnetworklobby;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import tk.utnetwork.utnetworklobby.Commands.ProfileCommand;
 import tk.utnetwork.utnetworklobby.Commands.ServerSelectorCommand;
-import tk.utnetwork.utnetworklobby.Events.PluginMessage;
-import tk.utnetwork.utnetworklobby.Events.SelectEvent;
+import tk.utnetwork.utnetworklobby.Events.*;
 import tk.utnetwork.utnetworklobby.Utils.Utils;
 
 public final class UTNetworkLobby extends JavaPlugin {
@@ -14,6 +14,10 @@ public final class UTNetworkLobby extends JavaPlugin {
         this.getServer().getMessenger().registerIncomingPluginChannel(this, "BungeeCord", new PluginMessage(this));
 
         getCommand("serverselector").setExecutor(new ServerSelectorCommand(this));
+        getCommand("profile").setExecutor(new ProfileCommand());
+        getCommand("rename").setExecutor(new ItemRenameCommand());
+        getServer().getPluginManager().registerEvents(new JoinAndQuitEvent(), this);
+        getServer().getPluginManager().registerEvents(new SelectInvEvent(), this);
         getServer().getPluginManager().registerEvents(new SelectEvent(this), this);
 
         Utils utils = new Utils(this);
