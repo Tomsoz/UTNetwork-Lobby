@@ -15,7 +15,6 @@ public final class UTNetworkLobby extends JavaPlugin {
 
         getCommand("serverselector").setExecutor(new ServerSelectorCommand(this));
         getCommand("profile").setExecutor(new ProfileCommand());
-        getCommand("rename").setExecutor(new ItemRenameCommand());
         getServer().getPluginManager().registerEvents(new JoinAndQuitEvent(), this);
         getServer().getPluginManager().registerEvents(new SelectInvEvent(), this);
         getServer().getPluginManager().registerEvents(new SelectEvent(this), this);
