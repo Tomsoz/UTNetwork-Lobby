@@ -29,7 +29,7 @@ public class ProfileCommand implements CommandExecutor {
             if (p.hasPermission("proxy.tsm")) {
                 inv = Bukkit.createInventory(p, 54, "Profile Settings");
 
-                for (int i = 0; i < 54; i++) {
+                for (int i = 0; i < 45; i++) {
                     if (i != 10 && i != 13 && i != 16 && i != 28 && i != 31 && i != 34) {
                         ItemStack none = new ItemStack(STAINED_GLASS_PANE, 1, (byte) 7);
                         ItemMeta noneMeta = none.getItemMeta();
