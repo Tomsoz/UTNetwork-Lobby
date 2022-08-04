@@ -29,7 +29,6 @@ public class ServerSelectorCommand implements CommandExecutor {
         if (commandSender instanceof Player) {
             Player p = (Player) commandSender;
 
-
             Inventory inv = Bukkit.createInventory(p, 27, "Server Selector");
 
             ItemStack item1 = new ItemStack(Material.GRASS);
@@ -80,10 +79,6 @@ public class ServerSelectorCommand implements CommandExecutor {
         } else {
             commandSender.sendMessage(Utils.chat("%tYou need to be a player to use this command."));
         }
-
-
-
-
         return false;
     }
 }

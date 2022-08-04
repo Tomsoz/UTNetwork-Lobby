@@ -4,11 +4,34 @@ main: tk.utnetwork.utnetworklobby.UTNetworkLobby
 authors: [ Ul1ra, Tomsoz ]
 description: The core UTNetwork plugin for the lobby.
 commands:
+
   serverselector:
     description: Command that opens a GUI with available game modes.
+
   profile:
     description: Command that opens a GUI with profile settings.
-  rename:
+
+  cosmetics:
+    description: Command that opens a GUI with different cosmetics.
+
+  gamemode:
     aliases:
-      - irename
-    description: Command that renames the held item of a player.
+      - gm
+    description: Command that changes the player's game mode.
+    permission: staff.gamemode.use
+
+  gmc:
+    description: Command that changes the player's game mode to creative.
+    permission: staff.gamemode.creative
+
+  gms:
+    description: Command that changes the player's game mode to survival.
+    permission: staff.gamemode.survival
+
+  gma:
+    description: Command that changes the player's game mode to adventure.
+    permission: staff.gamemode.adventure
+
+  gmsp:
+    description: Command that changes the player's game mode to spectator.
+    permission: staff.gamemode.spectator

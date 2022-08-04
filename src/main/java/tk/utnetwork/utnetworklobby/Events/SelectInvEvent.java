@@ -23,7 +23,7 @@ public class SelectInvEvent implements Listener {
                     p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§e§lCosmetics §7(Right-click)")) {
 
                 e.setCancelled(true);
-                //p.chat("/cosmetics");
+                p.chat("/cosmetics");
             } else if (p.getItemInHand().getType().equals(Material.PAPER) &&
                     p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§e§lProfile Settings §7(Right-click)")) {
 
