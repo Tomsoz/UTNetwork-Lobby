@@ -90,6 +90,7 @@ public class CosmeticEvent implements Listener {
     }
 
     public void addStack(Player p, String name, Color color) {
+
         name = Utils.chat(name);
 
         ItemStack item = new ItemStack(LEATHER_CHESTPLATE);
