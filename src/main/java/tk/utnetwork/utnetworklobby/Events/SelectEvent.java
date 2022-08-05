@@ -32,6 +32,10 @@ public class SelectEvent implements Listener {
             }
         } else if (e.getInventory().getTitle().equalsIgnoreCase("Profile Settings")) {
             e.setCancelled(true);
+            if (e.getSlot() == 10) {
+                Utils.sendPluginMessage("CommandAsPlayer", p, "tpm", plugin);
+                p.closeInventory();
+            }
         }
 
     }

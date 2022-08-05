@@ -60,6 +60,7 @@ public class CosmeticEvent implements Listener {
                         count++;
                     }
                 }
+                items.clear();
                 p.openInventory(inv);
             }
         } else if (e.getInventory().getTitle().equalsIgnoreCase("Suits")) {
@@ -98,26 +99,35 @@ public class CosmeticEvent implements Listener {
         List<String> lore = new ArrayList<>();
         LeatherArmorMeta itemMeta = (LeatherArmorMeta) item.getItemMeta();
 
-        LeatherArmorMeta meta = (LeatherArmorMeta) p.getEquipment().getHelmet().getItemMeta();
-
         lore.add("");
-        if (meta != null) {
+        if (p.getEquipment().getHelmet() != null) {
 
-            if (meta.getColor() == color) {
+            if (p.getEquipment().getHelmet().hasItemMeta()) {
 
-                item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 1);
-                itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-                lore.add(Utils.chat("&aEquipped"));
-                lore.add(Utils.chat("&7Un-equipped"));
+                LeatherArmorMeta meta = (LeatherArmorMeta) p.getEquipment().getHelmet().getItemMeta();
+
+                if (String.valueOf(meta.getColor()).equalsIgnoreCase(String.valueOf(color))) {
+
+                    item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 1);
+                    itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+                    lore.add(Utils.chat("&aEquipped"));
+                    lore.add(Utils.chat("&7Un-equipped"));
+
+                } else {
+                    lore.add(Utils.chat("&7Equipped"));
+                    lore.add(Utils.chat("&aUn-equipped"));
+                }
 
             } else {
                 lore.add(Utils.chat("&7Equipped"));
                 lore.add(Utils.chat("&aUn-equipped"));
             }
+
         } else {
             lore.add(Utils.chat("&7Equipped"));
             lore.add(Utils.chat("&aUn-equipped"));
         }
+
         lore.add("");
 
         itemMeta.setColor(color);

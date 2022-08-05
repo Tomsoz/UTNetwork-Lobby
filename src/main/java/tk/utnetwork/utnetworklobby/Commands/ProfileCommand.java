@@ -101,7 +101,7 @@ public class ProfileCommand implements CommandExecutor {
             lore.add(Utils.chat("%pEnable or disable the ability for players"));
             lore.add(Utils.chat("%pto communicate with you through messaging."));
             lore.add("");
-            lore.add(Utils.chat("%t&lCURRENTLY UNAVAILABLE"));
+            lore.add(Utils.chat("&a&lCLICK TO TOGGLE"));
             lore.add("");
 
             item1Meta.setLore(lore);
