@@ -43,16 +43,15 @@ public class CosmeticEvent implements Listener {
                     inv.setItem(i, none);
                 }
 
-                addStack(p, Utils.chat("&5Purple Suit"), Color.PURPLE);
-                addStack(p, Utils.chat("&5Purple Suit"), Color.PURPLE);
-                addStack(p, Utils.chat("&3Cyan Suit"), Color.NAVY);
-                addStack(p, Utils.chat("&fSilver Suit"), Color.SILVER);
-                addStack(p, Utils.chat("&7Gray Suit"), Color.GRAY);
-                addStack(p, Utils.chat("&dPink Suit"), Color.FUCHSIA);
-                addStack(p, Utils.chat("&aLime Suit"), Color.LIME);
-                addStack(p, Utils.chat("&3Light Blue Suit"), Color.TEAL);
-                addStack(p, Utils.chat("&5Magenta Suit"), Color.MAROON);
-                addStack(p, Utils.chat("&6Orange Suit"), Color.ORANGE);
+                addStack(p, "&5Purple Suit", Color.PURPLE);
+                addStack(p, "&3Cyan Suit", Color.NAVY);
+                addStack(p, "&fSilver Suit", Color.SILVER);
+                addStack(p, "&7Gray Suit", Color.GRAY);
+                addStack(p, "&aLime Suit", Color.LIME);
+                addStack(p, "&dPink Suit", Color.FUCHSIA);
+                addStack(p, "&3Light Blue Suit", Color.TEAL);
+                addStack(p, "&5Magenta Suit", Color.MAROON);
+                addStack(p, "&6Orange Suit", Color.ORANGE);
 
                 int count = 9;
                 for (ItemStack item : items) {
@@ -76,9 +75,9 @@ public class CosmeticEvent implements Listener {
             } else if (e.getSlot() == 12) {
                 setArmor(p, Color.GRAY, "&7Gray Suit");
             } else if (e.getSlot() == 13) {
-                setArmor(p, Color.FUCHSIA, "&dPink Suit");
-            } else if (e.getSlot() == 14) {
                 setArmor(p, Color.LIME, "&aLime Suit");
+            } else if (e.getSlot() == 14) {
+                setArmor(p, Color.FUCHSIA, "&dPink Suit");
             } else if (e.getSlot() == 15) {
                 setArmor(p, Color.TEAL, "&3Light Blue Suit");
             } else if (e.getSlot() == 16) {
@@ -91,26 +90,37 @@ public class CosmeticEvent implements Listener {
     }
 
     public void addStack(Player p, String name, Color color) {
+        name = Utils.chat(name);
 
         ItemStack item = new ItemStack(LEATHER_CHESTPLATE);
 
         List<String> lore = new ArrayList<>();
         LeatherArmorMeta itemMeta = (LeatherArmorMeta) item.getItemMeta();
 
-        if (p.getEquipment().getHelmet().getItemMeta().getDisplayName().contains(name)) {
-            item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 1);
-            itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-            lore.add(Utils.chat("&aEquipped"));
-            lore.add(Utils.chat("&7Un-equipped"));
+        LeatherArmorMeta meta = (LeatherArmorMeta) p.getEquipment().getHelmet().getItemMeta();
+
+        lore.add("");
+        if (meta != null) {
+
+            if (meta.getColor() == color) {
+
+                item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 1);
+                itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+                lore.add(Utils.chat("&aEquipped"));
+                lore.add(Utils.chat("&7Un-equipped"));
+
+            } else {
+                lore.add(Utils.chat("&7Equipped"));
+                lore.add(Utils.chat("&aUn-equipped"));
+            }
         } else {
             lore.add(Utils.chat("&7Equipped"));
             lore.add(Utils.chat("&aUn-equipped"));
         }
         lore.add("");
-        lore.add("");
 
         itemMeta.setColor(color);
-        itemMeta.setDisplayName(Utils.chat(name));
+        itemMeta.setDisplayName(name);
 
         itemMeta.setLore(lore);
         item.setItemMeta(itemMeta);
@@ -125,21 +135,25 @@ public class CosmeticEvent implements Listener {
         LeatherArmorMeta helmetMeta = (LeatherArmorMeta) helmet.getItemMeta();
         helmetMeta.setColor(color);
         helmetMeta.setDisplayName(Utils.chat(colorS));
+        helmet.setItemMeta(helmetMeta);
 
         ItemStack chestplate = new ItemStack(LEATHER_CHESTPLATE);
         LeatherArmorMeta chestMeta = (LeatherArmorMeta) chestplate.getItemMeta();
         chestMeta.setColor(color);
         chestMeta.setDisplayName(Utils.chat(colorS));
+        chestplate.setItemMeta(chestMeta);
 
         ItemStack leggings = new ItemStack(LEATHER_LEGGINGS);
         LeatherArmorMeta legMeta = (LeatherArmorMeta) leggings.getItemMeta();
         legMeta.setColor(color);
         legMeta.setDisplayName(Utils.chat(colorS));
+        leggings.setItemMeta(legMeta);
 
         ItemStack boots = new ItemStack(LEATHER_BOOTS);
         LeatherArmorMeta bootsMeta = (LeatherArmorMeta) boots.getItemMeta();
         bootsMeta.setColor(color);
         bootsMeta.setDisplayName(Utils.chat(colorS));
+        boots.setItemMeta(bootsMeta);
 
         p.getEquipment().setHelmet(helmet);
         p.getEquipment().setChestplate(chestplate);
@@ -147,6 +161,6 @@ public class CosmeticEvent implements Listener {
         p.getEquipment().setBoots(boots);
 
         p.closeInventory();
-        p.sendMessage(Utils.chat("%p[%sUT%p] Equipped suit: " + colorS + " %p."));
+        p.sendMessage(Utils.chat("%p[%sUT%p] Equipped suit: " + colorS + "%p."));
     }
 }
