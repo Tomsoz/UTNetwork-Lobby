@@ -18,11 +18,6 @@ public final class UTNetworkLobby extends JavaPlugin {
         getCommand("serverselector").setExecutor(new ServerSelectorCommand(this));
         getCommand("profile").setExecutor(new ProfileCommand());
         getCommand("cosmetics").setExecutor(new CosmeticsCommand());
-        getCommand("gmc").setExecutor(new GameModeCommand());
-        getCommand("gms").setExecutor(new GameModeCommand());
-        getCommand("gma").setExecutor(new GameModeCommand());
-        getCommand("gmsp").setExecutor(new GameModeCommand());
-        getCommand("gamemode").setExecutor(new GameModeCommand());
 
         getServer().getPluginManager().registerEvents(new JoinAndQuitEvent(), this);
         getServer().getPluginManager().registerEvents(new SelectInvEvent(), this);
