@@ -2,7 +2,6 @@ package tk.utnetwork.utnetworklobby.Events;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
-import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -44,13 +43,13 @@ public class CosmeticEvent implements Listener {
                 }
 
                 addStack(p, "&5Purple Suit", Color.PURPLE);
-                addStack(p, "&3Cyan Suit", Color.NAVY);
+                addStack(p, "&1Blue Suit", Color.NAVY);
                 addStack(p, "&fSilver Suit", Color.SILVER);
                 addStack(p, "&7Gray Suit", Color.GRAY);
                 addStack(p, "&aLime Suit", Color.LIME);
                 addStack(p, "&dPink Suit", Color.FUCHSIA);
                 addStack(p, "&3Light Blue Suit", Color.TEAL);
-                addStack(p, "&5Magenta Suit", Color.MAROON);
+                addStack(p, "&4Red Suit", Color.MAROON);
                 addStack(p, "&6Orange Suit", Color.ORANGE);
 
                 int count = 9;
@@ -64,13 +63,12 @@ public class CosmeticEvent implements Listener {
                 p.openInventory(inv);
             }
         } else if (e.getInventory().getTitle().equalsIgnoreCase("Suits")) {
-
             e.setCancelled(true);
 
             if (e.getSlot() == 9) {
                 setArmor(p, Color.PURPLE, "&5Purple Suit");
             } else if (e.getSlot() == 10) {
-                setArmor(p, Color.NAVY, "&3Cyan Suit");
+                setArmor(p, Color.NAVY, "&1Blue Suit");
             } else if (e.getSlot() == 11) {
                 setArmor(p, Color.SILVER, "&fSilver Suit");
             } else if (e.getSlot() == 12) {
@@ -82,7 +80,7 @@ public class CosmeticEvent implements Listener {
             } else if (e.getSlot() == 15) {
                 setArmor(p, Color.TEAL, "&3Light Blue Suit");
             } else if (e.getSlot() == 16) {
-                setArmor(p, Color.MAROON, "&5Magenta Suit");
+                setArmor(p, Color.MAROON, "&4Red Suit");
             } else if (e.getSlot() == 17) {
                 setArmor(p, Color.ORANGE, "&6Orange Suit");
             }
@@ -108,24 +106,25 @@ public class CosmeticEvent implements Listener {
 
                 if (String.valueOf(meta.getColor()).equalsIgnoreCase(String.valueOf(color))) {
 
-                    item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 1);
+                    itemMeta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
                     itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+                    itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
                     lore.add(Utils.chat("&aEquipped"));
                     lore.add(Utils.chat("&7Un-equipped"));
 
                 } else {
                     lore.add(Utils.chat("&7Equipped"));
-                    lore.add(Utils.chat("&aUn-equipped"));
+                    lore.add(Utils.chat("&cUn-equipped"));
                 }
 
             } else {
                 lore.add(Utils.chat("&7Equipped"));
-                lore.add(Utils.chat("&aUn-equipped"));
+                lore.add(Utils.chat("&cUn-equipped"));
             }
 
         } else {
             lore.add(Utils.chat("&7Equipped"));
-            lore.add(Utils.chat("&aUn-equipped"));
+            lore.add(Utils.chat("&cUn-equipped"));
         }
 
         lore.add("");
@@ -142,28 +141,52 @@ public class CosmeticEvent implements Listener {
 
     public void setArmor(Player p, Color color, String colorS) {
 
+        if (p.getEquipment().getHelmet() != null) {
+
+            if (p.getEquipment().getHelmet().hasItemMeta()) {
+
+                LeatherArmorMeta meta = (LeatherArmorMeta) p.getEquipment().getHelmet().getItemMeta();
+
+                if (String.valueOf(meta.getColor()).equalsIgnoreCase(String.valueOf(color))) {
+
+                    p.getEquipment().setHelmet(null);
+                    p.getEquipment().setChestplate(null);
+                    p.getEquipment().setLeggings(null);
+                    p.getEquipment().setBoots(null);
+                    p.sendMessage(Utils.chat("%p[%sUT%p] Un-equipped suit: " + colorS + "%p."));
+                    p.closeInventory();
+                    return;
+
+                }
+            }
+        }
+
         ItemStack helmet = new ItemStack(LEATHER_HELMET);
         LeatherArmorMeta helmetMeta = (LeatherArmorMeta) helmet.getItemMeta();
         helmetMeta.setColor(color);
         helmetMeta.setDisplayName(Utils.chat(colorS));
+        helmetMeta.spigot().setUnbreakable(true);
         helmet.setItemMeta(helmetMeta);
 
         ItemStack chestplate = new ItemStack(LEATHER_CHESTPLATE);
         LeatherArmorMeta chestMeta = (LeatherArmorMeta) chestplate.getItemMeta();
         chestMeta.setColor(color);
         chestMeta.setDisplayName(Utils.chat(colorS));
+        chestMeta.spigot().setUnbreakable(true);
         chestplate.setItemMeta(chestMeta);
 
         ItemStack leggings = new ItemStack(LEATHER_LEGGINGS);
         LeatherArmorMeta legMeta = (LeatherArmorMeta) leggings.getItemMeta();
         legMeta.setColor(color);
         legMeta.setDisplayName(Utils.chat(colorS));
+        legMeta.spigot().setUnbreakable(true);
         leggings.setItemMeta(legMeta);
 
         ItemStack boots = new ItemStack(LEATHER_BOOTS);
         LeatherArmorMeta bootsMeta = (LeatherArmorMeta) boots.getItemMeta();
         bootsMeta.setColor(color);
         bootsMeta.setDisplayName(Utils.chat(colorS));
+        bootsMeta.spigot().setUnbreakable(true);
         boots.setItemMeta(bootsMeta);
 
         p.getEquipment().setHelmet(helmet);
@@ -175,3 +198,4 @@ public class CosmeticEvent implements Listener {
         p.sendMessage(Utils.chat("%p[%sUT%p] Equipped suit: " + colorS + "%p."));
     }
 }
+
