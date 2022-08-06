@@ -2,6 +2,7 @@ package tk.utnetwork.utnetworklobby;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import tk.utnetwork.utnetworklobby.Commands.CosmeticsCommand;
+import tk.utnetwork.utnetworklobby.Commands.LifeStealCommand;
 import tk.utnetwork.utnetworklobby.Commands.ProfileCommand;
 import tk.utnetwork.utnetworklobby.Commands.ServerSelectorCommand;
 import tk.utnetwork.utnetworklobby.Events.*;
@@ -17,6 +18,9 @@ public final class UTNetworkLobby extends JavaPlugin {
         getCommand("serverselector").setExecutor(new ServerSelectorCommand(this));
         getCommand("profile").setExecutor(new ProfileCommand());
         getCommand("cosmetics").setExecutor(new CosmeticsCommand());
+        getCommand("spawn").setExecutor(new SpawnCommands());
+        getCommand("setspawn").setExecutor(new SpawnCommands());
+        getCommand("lifesteal").setExecutor(new LifeStealCommand(this));
 
         getServer().getPluginManager().registerEvents(new JoinAndQuitEvent(), this);
         getServer().getPluginManager().registerEvents(new SelectInvEvent(), this);
@@ -25,6 +29,7 @@ public final class UTNetworkLobby extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new WorldGuardEvents(), this);
 
         Utils utils = new Utils(this);
+
         getConfig().options().copyDefaults();
         saveDefaultConfig();
 

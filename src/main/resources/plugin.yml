@@ -8,8 +8,22 @@ commands:
   serverselector:
     description: Command that opens a GUI with available game modes.
 
+  lifesteal:
+    aliases:
+      - ls
+    description: Command that directly connects you to LifeSteal.
+
   profile:
     description: Command that opens a GUI with profile settings.
 
   cosmetics:
     description: Command that opens a GUI with different cosmetics.
+
+  spawn:
+    description: Command that will teleport back to the world spawn.
+
+  setspawn:
+    aliases:
+      - setworldspawn
+    description: Command that changes the world spawn.
+    permission: staff.setspawn
