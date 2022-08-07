@@ -10,10 +10,15 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import tk.utnetwork.utnetworklobby.Utils.Utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class JoinAndQuitEvent implements Listener {
 
+    List<ItemStack> itemList = new ArrayList<>();
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
+
         Player p = e.getPlayer();
 
         e.setJoinMessage(Utils.chat("%s" + p.getCustomName() + " %phas joined your lobby!"));
@@ -33,13 +38,42 @@ public class JoinAndQuitEvent implements Listener {
         item3Meta.setDisplayName("§e§lProfile Settings §7(Right-click)");
         item3.setItemMeta(item3Meta);
 
-        p.getInventory().clear();
+        addStack(Material.FISHING_ROD, "&bGrappling Hook");
+        addStack(Material.SNOW_BALL, "&bSlowball Launcher");
+        addStack(Material.STICK, "&bStaff Repellent");
+
+        addStack(Material.NETHER_STAR, "&e&lServer Selector &7(Right-click)");
+        addStack(Material.CHEST, "&e&lCosmetics &7(Right-click)");
+        addStack(Material.PAPER, "&e&lProfile Settings &7(Right-click)");
+
         p.getInventory().setItem(0, item1);
         p.getInventory().setItem(4, item2);
         p.getInventory().setItem(8, item3);
+
+        for (ItemStack items : p.getInventory().getContents()) {
+            if (items != null) {
+                if (items.hasItemMeta()) {
+                    if (!itemList.contains(items)) {
+                        p.getInventory().remove(items);
+                    }
+                }
+            }
+        }
     }
+
+    public void addStack(Material item, String name) {
+
+        ItemStack itemAdd = new ItemStack(item);
+        ItemMeta itemAddMeta = itemAdd.getItemMeta();
+        itemAddMeta.setDisplayName(name);
+        itemAdd.setItemMeta(itemAddMeta);
+
+        itemList.add(itemAdd);
+    }
+
     @EventHandler
     public void onQuit(PlayerQuitEvent e) {
+
         Player p = e.getPlayer();
         e.setQuitMessage(Utils.chat("%s" + p.getCustomName() + " %phas left your lobby!"));
 

@@ -46,8 +46,6 @@ public class CosmeticsCommand implements CommandExecutor {
             lore2.add(Utils.chat("%pEquip the gadget you like to"));
             lore2.add(Utils.chat("%phave fun in the server lobby."));
             lore2.add("");
-            lore2.add(Utils.chat("%t&lCURRENTLY UNAVAILABLE"));
-            lore2.add("");
 
             item2Meta.setLore(lore2);
             item2.setItemMeta(item2Meta);
