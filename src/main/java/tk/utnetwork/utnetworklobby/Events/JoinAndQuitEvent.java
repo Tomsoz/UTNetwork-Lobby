@@ -38,27 +38,14 @@ public class JoinAndQuitEvent implements Listener {
         item3Meta.setDisplayName("§e§lProfile Settings §7(Right-click)");
         item3.setItemMeta(item3Meta);
 
-        addStack(Material.FISHING_ROD, "&bGrappling Hook");
-        addStack(Material.SNOW_BALL, "&bSlowball Launcher");
-        addStack(Material.STICK, "&bStaff Repellent");
+        ItemStack currentCosmetic = p.getInventory().getItem(3);
 
-        addStack(Material.NETHER_STAR, "&e&lServer Selector &7(Right-click)");
-        addStack(Material.CHEST, "&e&lCosmetics &7(Right-click)");
-        addStack(Material.PAPER, "&e&lProfile Settings &7(Right-click)");
+        p.getInventory().clear();
 
         p.getInventory().setItem(0, item1);
+        p.getInventory().setItem(3, currentCosmetic);
         p.getInventory().setItem(4, item2);
         p.getInventory().setItem(8, item3);
-
-        for (ItemStack items : p.getInventory().getContents()) {
-            if (items != null) {
-                if (items.hasItemMeta()) {
-                    if (!itemList.contains(items)) {
-                        p.getInventory().remove(items);
-                    }
-                }
-            }
-        }
     }
 
     public void addStack(Material item, String name) {
