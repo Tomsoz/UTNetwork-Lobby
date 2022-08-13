@@ -39,7 +39,7 @@ public class CosmeticEvent implements Listener {
                 for (int i = 0; i < 27; i++) {
                     ItemStack none = new ItemStack(STAINED_GLASS_PANE, 1, (byte) 7);
                     ItemMeta noneMeta = none.getItemMeta();
-                    noneMeta.setDisplayName(Utils.chat("&7"));
+                    noneMeta.setDisplayName(Utils.chatRaw("&7"));
                     none.setItemMeta(noneMeta);
                     inv.setItem(i, none);
                 }
@@ -70,28 +70,28 @@ public class CosmeticEvent implements Listener {
                 for (int i = 0; i < 27; i++) {
                     ItemStack none = new ItemStack(STAINED_GLASS_PANE, 1, (byte) 7);
                     ItemMeta noneMeta = none.getItemMeta();
-                    noneMeta.setDisplayName(Utils.chat("&7"));
+                    noneMeta.setDisplayName(Utils.chatRaw("&7"));
                     none.setItemMeta(noneMeta);
                     inv.setItem(i, none);
                 }
 //-ITEM_1----------------------------------------------------------------------------------
                 ItemStack item1 = new ItemStack(FISHING_ROD, 1);
                 ItemMeta item1Meta = item1.getItemMeta();
-                item1Meta.setDisplayName(Utils.chat("&bGrappling Hook"));
+                item1Meta.setDisplayName(Utils.chatRaw("&bGrappling Hook"));
 
                 List<String> lore = new ArrayList<>();
                 lore.add("");
-                lore.add(Utils.chat("&3Right-click to grapple and launch"));
-                lore.add(Utils.chat("&3in the direction you are facing!"));
+                lore.add(Utils.chatRaw("&3Right-click to grapple and launch"));
+                lore.add(Utils.chatRaw("&3in the direction you are facing!"));
                 lore.add("");
-                if (equipCheck(p, FISHING_ROD, Utils.chat("&bGrappling Hook"))) {
+                if (equipCheck(p, FISHING_ROD, Utils.chatRaw("&bGrappling Hook"))) {
                     item1Meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
                     item1Meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-                    lore.add(Utils.chat("&aEquipped"));
-                    lore.add(Utils.chat("&7Un-equipped"));
+                    lore.add(Utils.chatRaw("&aEquipped"));
+                    lore.add(Utils.chatRaw("&7Un-equipped"));
                 } else {
-                    lore.add(Utils.chat("&7Equipped"));
-                    lore.add(Utils.chat("&cUn-equipped"));
+                    lore.add(Utils.chatRaw("&7Equipped"));
+                    lore.add(Utils.chatRaw("&cUn-equipped"));
                 }
                 lore.add("");
                 item1Meta.setLore(lore);
@@ -99,21 +99,21 @@ public class CosmeticEvent implements Listener {
 //-ITEM_2----------------------------------------------------------------------------------
                 ItemStack item2 = new ItemStack(SNOW_BALL, 1);
                 ItemMeta item2Meta = item2.getItemMeta();
-                item2Meta.setDisplayName(Utils.chat("&bSlowball Launcher"));
+                item2Meta.setDisplayName(Utils.chatRaw("&bSlowball Launcher"));
 
                 List<String> lore2 = new ArrayList<>();
                 lore2.add("");
-                lore2.add(Utils.chat("&3Right-click to shoot as many"));
-                lore2.add(Utils.chat("&3snowballs to slow down players!"));
+                lore2.add(Utils.chatRaw("&3Right-click to shoot as many"));
+                lore2.add(Utils.chatRaw("&3snowballs to slow down players!"));
                 lore2.add("");
-                if (equipCheck(p, SNOW_BALL, Utils.chat("&bSlowball Launcher"))) {
+                if (equipCheck(p, SNOW_BALL, Utils.chatRaw("&bSlowball Launcher"))) {
                     item2Meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
                     item2Meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-                    lore2.add(Utils.chat("&aEquipped"));
-                    lore2.add(Utils.chat("&7Un-equipped"));
+                    lore2.add(Utils.chatRaw("&aEquipped"));
+                    lore2.add(Utils.chatRaw("&7Un-equipped"));
                 } else {
-                    lore2.add(Utils.chat("&7Equipped"));
-                    lore2.add(Utils.chat("&cUn-equipped"));
+                    lore2.add(Utils.chatRaw("&7Equipped"));
+                    lore2.add(Utils.chatRaw("&cUn-equipped"));
                 }
                 lore2.add("");
                 item2Meta.setLore(lore2);
@@ -121,21 +121,21 @@ public class CosmeticEvent implements Listener {
 //-ITEM_3----------------------------------------------------------------------------------
                 ItemStack item3 = new ItemStack(STICK, 1);
                 ItemMeta item3Meta = item3.getItemMeta();
-                item3Meta.setDisplayName(Utils.chat("&bStaff Repellent"));
+                item3Meta.setDisplayName(Utils.chatRaw("&bStaff Repellent"));
 
                 List<String> lore3 = new ArrayList<>();
                 lore3.add("");
-                lore3.add(Utils.chat("&3Right-click to punch online"));
-                lore3.add(Utils.chat("&3Staff Team members in the air!"));
+                lore3.add(Utils.chatRaw("&3Right-click to punch online"));
+                lore3.add(Utils.chatRaw("&3Staff Team members in the air!"));
                 lore3.add("");
-                if (equipCheck(p, STICK, Utils.chat("&bStaff Repellent"))) {
+                if (equipCheck(p, STICK, Utils.chatRaw("&bStaff Repellent"))) {
                     item3Meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
                     item3Meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-                    lore3.add(Utils.chat("&aEquipped"));
-                    lore3.add(Utils.chat("&7Un-equipped"));
+                    lore3.add(Utils.chatRaw("&aEquipped"));
+                    lore3.add(Utils.chatRaw("&7Un-equipped"));
                 } else {
-                    lore3.add(Utils.chat("&7Equipped"));
-                    lore3.add(Utils.chat("&cUn-equipped"));
+                    lore3.add(Utils.chatRaw("&7Equipped"));
+                    lore3.add(Utils.chatRaw("&cUn-equipped"));
                 }
                 lore3.add("");
                 item3Meta.setLore(lore3);
@@ -183,7 +183,7 @@ public class CosmeticEvent implements Listener {
 
     public void addStack(Player p, String name, Color color) {
 
-        name = Utils.chat(name);
+        name = Utils.chatRaw(name);
 
         ItemStack item = new ItemStack(LEATHER_CHESTPLATE, 1);
 
@@ -201,22 +201,22 @@ public class CosmeticEvent implements Listener {
 
                     itemMeta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
                     itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-                    lore.add(Utils.chat("&aEquipped"));
-                    lore.add(Utils.chat("&7Un-equipped"));
+                    lore.add(Utils.chatRaw("&aEquipped"));
+                    lore.add(Utils.chatRaw("&7Un-equipped"));
 
                 } else {
-                    lore.add(Utils.chat("&7Equipped"));
-                    lore.add(Utils.chat("&cUn-equipped"));
+                    lore.add(Utils.chatRaw("&7Equipped"));
+                    lore.add(Utils.chatRaw("&cUn-equipped"));
                 }
 
             } else {
-                lore.add(Utils.chat("&7Equipped"));
-                lore.add(Utils.chat("&cUn-equipped"));
+                lore.add(Utils.chatRaw("&7Equipped"));
+                lore.add(Utils.chatRaw("&cUn-equipped"));
             }
 
         } else {
-            lore.add(Utils.chat("&7Equipped"));
-            lore.add(Utils.chat("&cUn-equipped"));
+            lore.add(Utils.chatRaw("&7Equipped"));
+            lore.add(Utils.chatRaw("&cUn-equipped"));
         }
 
         lore.add("");
@@ -245,7 +245,7 @@ public class CosmeticEvent implements Listener {
                     p.getEquipment().setChestplate(null);
                     p.getEquipment().setLeggings(null);
                     p.getEquipment().setBoots(null);
-                    p.sendMessage(Utils.chat("%p[%sUT%p] Un-equipped suit: " + colorS + "%p."));
+                    p.sendMessage(Utils.chat("Un-equipped suit: " + colorS + "%p."));
                     p.closeInventory();
                     return;
 
@@ -256,28 +256,28 @@ public class CosmeticEvent implements Listener {
         ItemStack helmet = new ItemStack(LEATHER_HELMET);
         LeatherArmorMeta helmetMeta = (LeatherArmorMeta) helmet.getItemMeta();
         helmetMeta.setColor(color);
-        helmetMeta.setDisplayName(Utils.chat(colorS));
+        helmetMeta.setDisplayName(Utils.chatRaw(colorS));
         helmetMeta.spigot().setUnbreakable(true);
         helmet.setItemMeta(helmetMeta);
 
         ItemStack chestplate = new ItemStack(LEATHER_CHESTPLATE);
         LeatherArmorMeta chestMeta = (LeatherArmorMeta) chestplate.getItemMeta();
         chestMeta.setColor(color);
-        chestMeta.setDisplayName(Utils.chat(colorS));
+        chestMeta.setDisplayName(Utils.chatRaw(colorS));
         chestMeta.spigot().setUnbreakable(true);
         chestplate.setItemMeta(chestMeta);
 
         ItemStack leggings = new ItemStack(LEATHER_LEGGINGS);
         LeatherArmorMeta legMeta = (LeatherArmorMeta) leggings.getItemMeta();
         legMeta.setColor(color);
-        legMeta.setDisplayName(Utils.chat(colorS));
+        legMeta.setDisplayName(Utils.chatRaw(colorS));
         legMeta.spigot().setUnbreakable(true);
         leggings.setItemMeta(legMeta);
 
         ItemStack boots = new ItemStack(LEATHER_BOOTS);
         LeatherArmorMeta bootsMeta = (LeatherArmorMeta) boots.getItemMeta();
         bootsMeta.setColor(color);
-        bootsMeta.setDisplayName(Utils.chat(colorS));
+        bootsMeta.setDisplayName(Utils.chatRaw(colorS));
         bootsMeta.spigot().setUnbreakable(true);
         boots.setItemMeta(bootsMeta);
 
@@ -287,11 +287,11 @@ public class CosmeticEvent implements Listener {
         p.getEquipment().setBoots(boots);
 
         p.closeInventory();
-        p.sendMessage(Utils.chat("%p[%sUT%p] Equipped suit: " + colorS + "%p."));
+        p.sendMessage(Utils.chat("Equipped suit: " + colorS + "%p."));
     }
 
     public void setGadget(Player p, Material item, String name) {
-        name = Utils.chat(name);
+        name = Utils.chatRaw(name);
 
         if (equipCheck(p, item, name)) {
             for (ItemStack items : p.getInventory().getContents()) {
@@ -300,7 +300,7 @@ public class CosmeticEvent implements Listener {
                         if (items.getType() == item) {
                             if (items.getItemMeta().getDisplayName().equalsIgnoreCase(name)) {
                                 p.getInventory().remove(items);
-                                p.sendMessage(Utils.chat("%p[%sUT%p] Un-equipped gadget: " + name + "%p."));
+                                p.sendMessage(Utils.chat("Un-equipped gadget: " + name + "%p."));
                                 p.closeInventory();
                                 return;
                             }
@@ -319,7 +319,7 @@ public class CosmeticEvent implements Listener {
         p.getInventory().setItem(3, gadget);
 
         p.closeInventory();
-        p.sendMessage(Utils.chat("%p[%sUT%p] Equipped gadget: " + name + "%p."));
+        p.sendMessage(Utils.chat("Equipped gadget: " + name + "%p."));
     }
 
     public boolean equipCheck(Player p, Material item, String name) {

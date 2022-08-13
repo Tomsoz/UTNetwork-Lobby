@@ -15,7 +15,7 @@ public class SpawnCommands implements CommandExecutor {
             Player p = (Player) sender;
 
             if (args.length > 0) {
-                p.sendMessage(Utils.chat("%p[%sUT%p] %tUsage: /" + cmd.getName()));
+                p.sendMessage(Utils.chat("%tUsage: /" + cmd.getName()));
             } else {
                 if (cmd.getName().equalsIgnoreCase("spawn")) {
 
@@ -28,7 +28,7 @@ public class SpawnCommands implements CommandExecutor {
                         p.getWorld().setSpawnLocation(loc.getBlockX(), loc.getBlockY(), loc.getBlockZ());
                         p.getWorld().getSpawnLocation().setYaw(loc.getYaw());
                         p.getWorld().getSpawnLocation().setPitch(loc.getPitch());
-                        p.sendMessage(Utils.chat("%p[%sUT%p] World spawn set to: %s" + loc.getBlockX() + "%p, %s" + loc.getBlockY() + "%p, %s" + loc.getBlockZ() + "%p."));
+                        p.sendMessage(Utils.chat("World spawn set to: %s" + loc.getBlockX() + "%p, %s" + loc.getBlockY() + "%p, %s" + loc.getBlockZ() + "%p."));
                     }
                 }
             }

@@ -33,28 +33,28 @@ public class ServerSelectorCommand implements CommandExecutor {
 
             ItemStack item1 = new ItemStack(Material.GRASS);
             ItemMeta item1Meta = item1.getItemMeta();
-            item1Meta.setDisplayName(Utils.chat("&f&lLifeSteal"));
+            item1Meta.setDisplayName(Utils.chatRaw("&f&lLifeSteal"));
 
             List<String> lore = new ArrayList<>();
             lore.add("");
-            lore.add(Utils.chat("&8- &7Public Minecraft SMP with the risk"));
-            lore.add(Utils.chat(" &8 &7of losing all of your hearts."));
+            lore.add(Utils.chatRaw("&8- &7Public Minecraft SMP with the risk"));
+            lore.add(Utils.chatRaw(" &8 &7of losing all of your hearts."));
             lore.add("");
-            lore.add(Utils.chat("&8- &7Online: &a") + PlaceholderAPI.setPlaceholders(p, "%premiumvanish_bungeeplayercount@lifesteal%") + Utils.chat("&8/&a50"));
+            lore.add(Utils.chatRaw("&8- &7Online: &a") + PlaceholderAPI.setPlaceholders(p, "%premiumvanish_bungeeplayercount@lifesteal%") + Utils.chatRaw("&8/&a50"));
             lore.add("");
-            lore.add(Utils.chat("&aClick to connect to &f&lLifeSteal"));
+            lore.add(Utils.chatRaw("&aClick to connect to &f&lLifeSteal"));
 
             item1Meta.setLore(lore);
             item1.setItemMeta(item1Meta);
 
             ItemStack item2 = new ItemStack(Material.BARRIER);
             ItemMeta item2Meta = item2.getItemMeta();
-            item2Meta.setDisplayName(Utils.chat("&c&lSOON"));
+            item2Meta.setDisplayName(Utils.chatRaw("&c&lSOON"));
             item2.setItemMeta(item2Meta);
 
             ItemStack item3 = new ItemStack(Material.BARRIER);
             ItemMeta item3Meta = item3.getItemMeta();
-            item3Meta.setDisplayName(Utils.chat("&c&lSOON"));
+            item3Meta.setDisplayName(Utils.chatRaw("&c&lSOON"));
             item3.setItemMeta(item3Meta);
 
             for (int i = 0; i < 27; i++) {
@@ -63,7 +63,7 @@ public class ServerSelectorCommand implements CommandExecutor {
                         if (i != 16) {
                             ItemStack none = new ItemStack(STAINED_GLASS_PANE, 1, (byte)7);
                             ItemMeta noneMeta = none.getItemMeta();
-                            noneMeta.setDisplayName(Utils.chat("&7"));
+                            noneMeta.setDisplayName(Utils.chatRaw("&7"));
                             none.setItemMeta(noneMeta);
                             inv.setItem(i, none);
                         }

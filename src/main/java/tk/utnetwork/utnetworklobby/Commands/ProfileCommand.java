@@ -26,14 +26,14 @@ public class ProfileCommand implements CommandExecutor {
 
 
             Inventory inv = null;
-            if (p.hasPermission("proxy.tsm")) {
+            if (p.hasPermission("staff")) {
                 inv = Bukkit.createInventory(p, 45, "Profile Settings");
 
                 for (int i = 0; i < 45; i++) {
                     if (i != 10 && i != 13 && i != 16 && i != 28 && i != 31 && i != 34) {
                         ItemStack none = new ItemStack(STAINED_GLASS_PANE, 1, (byte) 7);
                         ItemMeta noneMeta = none.getItemMeta();
-                        noneMeta.setDisplayName(Utils.chat("&7"));
+                        noneMeta.setDisplayName(Utils.chatRaw("&7"));
                         none.setItemMeta(noneMeta);
                         inv.setItem(i, none);
                     }
@@ -41,14 +41,14 @@ public class ProfileCommand implements CommandExecutor {
 
                 ItemStack item4 = new ItemStack(Material.PAPER);
                 ItemMeta item4Meta = item4.getItemMeta();
-                item4Meta.setDisplayName(Utils.chat("%sMute Staff Chat"));
+                item4Meta.setDisplayName(Utils.chatRaw("%sMute Staff Messages"));
 
                 List<String> lore4 = new ArrayList<>();
                 lore4.add("");
-                lore4.add(Utils.chat("%pEnable or disable the ability to view"));
-                lore4.add(Utils.chat("%psent messages sent through staff chat."));
+                lore4.add(Utils.chatRaw("%pEnable or disable the ability to view"));
+                lore4.add(Utils.chatRaw("%pall chat messages."));
                 lore4.add("");
-                lore4.add(Utils.chat("%t&lCURRENTLY UNAVAILABLE"));
+                lore4.add(Utils.chatRaw("&a&lCLICK TO TOGGLE"));
                 lore4.add("");
 
                 item4Meta.setLore(lore4);
@@ -56,14 +56,14 @@ public class ProfileCommand implements CommandExecutor {
 
                 ItemStack item5 = new ItemStack(Material.PAPER);
                 ItemMeta item5Meta = item5.getItemMeta();
-                item5Meta.setDisplayName(Utils.chat("%sToggle Staff Chat"));
+                item5Meta.setDisplayName(Utils.chatRaw("%sToggle Staff Chat"));
 
                 List<String> lore5 = new ArrayList<>();
                 lore5.add("");
-                lore5.add(Utils.chat("%pToggle the ability to communicate by viewing"));
-                lore5.add(Utils.chat("%pand sending messages through staff chat."));
+                lore5.add(Utils.chatRaw("%pToggle the ability to communicate by viewing"));
+                lore5.add(Utils.chatRaw("%pand sending messages through staff chat."));
                 lore5.add("");
-                lore5.add(Utils.chat("%t&lCURRENTLY UNAVAILABLE"));
+                lore5.add(Utils.chatRaw("&a&lCLICK TO TOGGLE"));
                 lore5.add("");
 
                 item5Meta.setLore(lore5);
@@ -73,7 +73,7 @@ public class ProfileCommand implements CommandExecutor {
                 ItemStack item6 = new ItemStack(Material.BARRIER);
                 ItemMeta item6Meta = item6.getItemMeta();
 
-                item6Meta.setDisplayName(Utils.chat("%t&lSOON"));
+                item6Meta.setDisplayName(Utils.chatRaw("%t&lSOON"));
                 item6.setItemMeta(item6Meta);
 
                 inv.setItem(28, item4);
@@ -86,7 +86,7 @@ public class ProfileCommand implements CommandExecutor {
                     if (i != 10 && i != 13 && i != 16) {
                         ItemStack none = new ItemStack(STAINED_GLASS_PANE, 1, (byte) 7);
                         ItemMeta noneMeta = none.getItemMeta();
-                        noneMeta.setDisplayName(Utils.chat("&7"));
+                        noneMeta.setDisplayName(Utils.chatRaw("&7"));
                         none.setItemMeta(noneMeta);
                         inv.setItem(i, none);
                     }
@@ -94,14 +94,14 @@ public class ProfileCommand implements CommandExecutor {
             }
             ItemStack item1 = new ItemStack(Material.PAPER);
             ItemMeta item1Meta = item1.getItemMeta();
-            item1Meta.setDisplayName(Utils.chat("%sReceive Private Messages"));
+            item1Meta.setDisplayName(Utils.chatRaw("%sReceive Private Messages"));
 
             List<String> lore = new ArrayList<>();
             lore.add("");
-            lore.add(Utils.chat("%pEnable or disable the ability for players"));
-            lore.add(Utils.chat("%pto communicate with you through messaging."));
+            lore.add(Utils.chatRaw("%pEnable or disable the ability for players"));
+            lore.add(Utils.chatRaw("%pto communicate with you through messaging."));
             lore.add("");
-            lore.add(Utils.chat("&a&lCLICK TO TOGGLE"));
+            lore.add(Utils.chatRaw("&a&lCLICK TO TOGGLE"));
             lore.add("");
 
             item1Meta.setLore(lore);
@@ -109,14 +109,14 @@ public class ProfileCommand implements CommandExecutor {
 
             ItemStack item2 = new ItemStack(Material.PAPER);
             ItemMeta item2Meta = item2.getItemMeta();
-            item2Meta.setDisplayName(Utils.chat("%sFriend Requests"));
+            item2Meta.setDisplayName(Utils.chatRaw("%sFriend Requests"));
 
             List<String> lore2 = new ArrayList<>();
             lore2.add("");
-            lore2.add(Utils.chat("%pEnable or disable the ability for"));
-            lore2.add(Utils.chat("%pplayers to send you a friend request."));
+            lore2.add(Utils.chatRaw("%pEnable or disable the ability for"));
+            lore2.add(Utils.chatRaw("%pplayers to send you a friend request."));
             lore2.add("");
-            lore2.add(Utils.chat("%t&lCURRENTLY UNAVAILABLE"));
+            lore2.add(Utils.chatRaw("%t&lCURRENTLY UNAVAILABLE"));
             lore2.add("");
 
             item2Meta.setLore(lore2);
@@ -124,14 +124,14 @@ public class ProfileCommand implements CommandExecutor {
 
             ItemStack item3 = new ItemStack(Material.PAPER);
             ItemMeta item3Meta = item3.getItemMeta();
-            item3Meta.setDisplayName(Utils.chat("%sFriend Teleport"));
+            item3Meta.setDisplayName(Utils.chatRaw("%sFriend Teleport"));
 
             List<String> lore3 = new ArrayList<>();
             lore3.add("");
-            lore3.add(Utils.chat("%pEnable or disable the ability for"));
-            lore3.add(Utils.chat("%pfriends to teleport to your server."));
+            lore3.add(Utils.chatRaw("%pEnable or disable the ability for"));
+            lore3.add(Utils.chatRaw("%pfriends to teleport to your server."));
             lore3.add("");
-            lore3.add(Utils.chat("%t&lCURRENTLY UNAVAILABLE"));
+            lore3.add(Utils.chatRaw("%t&lCURRENTLY UNAVAILABLE"));
             lore3.add("");
 
             item3Meta.setLore(lore3);

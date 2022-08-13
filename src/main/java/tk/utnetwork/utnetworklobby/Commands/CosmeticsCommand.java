@@ -26,12 +26,12 @@ public class CosmeticsCommand implements CommandExecutor {
 
             ItemStack item1 = new ItemStack(Material.LEATHER_CHESTPLATE);
             ItemMeta item1Meta = item1.getItemMeta();
-            item1Meta.setDisplayName(Utils.chat("%sSuits"));
+            item1Meta.setDisplayName(Utils.chatRaw("%sSuits"));
 
             List<String> lore = new ArrayList<>();
             lore.add("");
-            lore.add(Utils.chat("%pEquip the suit you like with 9"));
-            lore.add(Utils.chat("%pdifferent colors to choose from."));
+            lore.add(Utils.chatRaw("%pEquip the suit you like with 9"));
+            lore.add(Utils.chatRaw("%pdifferent colors to choose from."));
             lore.add("");
 
             item1Meta.setLore(lore);
@@ -39,12 +39,12 @@ public class CosmeticsCommand implements CommandExecutor {
 
             ItemStack item2 = new ItemStack(Material.FISHING_ROD);
             ItemMeta item2Meta = item2.getItemMeta();
-            item2Meta.setDisplayName(Utils.chat("%sGadgets"));
+            item2Meta.setDisplayName(Utils.chatRaw("%sGadgets"));
 
             List<String> lore2 = new ArrayList<>();
             lore2.add("");
-            lore2.add(Utils.chat("%pEquip the gadget you like to"));
-            lore2.add(Utils.chat("%phave fun in the server lobby."));
+            lore2.add(Utils.chatRaw("%pEquip the gadget you like to"));
+            lore2.add(Utils.chatRaw("%phave fun in the server lobby."));
             lore2.add("");
 
             item2Meta.setLore(lore2);
@@ -54,7 +54,7 @@ public class CosmeticsCommand implements CommandExecutor {
                 if (i != 12 && i != 14) {
                     ItemStack none = new ItemStack(STAINED_GLASS_PANE, 1, (byte) 7);
                     ItemMeta noneMeta = none.getItemMeta();
-                    noneMeta.setDisplayName(Utils.chat("&7"));
+                    noneMeta.setDisplayName(Utils.chatRaw("&7"));
                     none.setItemMeta(noneMeta);
                     inv.setItem(i, none);
                 }

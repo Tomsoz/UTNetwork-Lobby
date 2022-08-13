@@ -21,7 +21,7 @@ public class JoinAndQuitEvent implements Listener {
 
         Player p = e.getPlayer();
 
-        e.setJoinMessage(Utils.chat("%s" + p.getCustomName() + " %phas joined your lobby!"));
+        e.setJoinMessage(Utils.chatRaw("%s" + p.getCustomName() + " %phas joined your lobby!"));
 
         ItemStack item1 = new ItemStack(Material.NETHER_STAR);
         ItemMeta item1Meta = item1.getItemMeta();
@@ -62,7 +62,7 @@ public class JoinAndQuitEvent implements Listener {
     public void onQuit(PlayerQuitEvent e) {
 
         Player p = e.getPlayer();
-        e.setQuitMessage(Utils.chat("%s" + p.getCustomName() + " %phas left your lobby!"));
+        e.setQuitMessage(Utils.chatRaw("%s" + p.getCustomName() + " %phas left your lobby!"));
 
     }
 }

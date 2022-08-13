@@ -17,12 +17,20 @@ public class Utils {
     }
 
     public static String chat(String textToTranslate) {
+        return (plugin.getConfig().getString("prefix") + textToTranslate)
+                .replaceAll("%p", getPrimaryColour())
+                .replaceAll("%s", getSecondaryColour())
+                .replaceAll("%t", getTertiaryColour())
+                .replaceAll("&", "§");
+    }
+    public static String chatRaw(String textToTranslate) {
         return textToTranslate
                 .replaceAll("%p", getPrimaryColour())
                 .replaceAll("%s", getSecondaryColour())
                 .replaceAll("%t", getTertiaryColour())
                 .replaceAll("&", "§");
     }
+
 
     public static void log(String logToExecute) {
         logToExecute = chat(logToExecute);
@@ -61,4 +69,20 @@ public class Utils {
                 "&c" : plugin.getConfig().getString("colors.tertiary");
     }
 
+    public static String formatTime(int secs) {
+        int remainder = secs % 86400;
+
+        int days 	= secs / 86400;
+        int hours 	= remainder / 3600;
+        int minutes	= (remainder / 60) - (hours * 60);
+        int seconds	= (remainder % 3600) - (minutes * 60);
+
+        String fDays 	= (days > 0 	? " " + days + " day" 		+ (days > 1 ? "s" : "") 	: "");
+        String fHours 	= (hours > 0 	? " " + hours + " hour" 	+ (hours > 1 ? "s" : "") 	: "");
+        String fMinutes = (minutes > 0 	? " " + minutes + " minute"	+ (minutes > 1 ? "s" : "") 	: "");
+        String fSeconds = (seconds > 0 	? " " + seconds + " second"	+ (seconds > 1 ? "s" : "") 	: "");
+
+        return new StringBuilder().append(fDays).append(fHours)
+                .append(fMinutes).append(fSeconds).toString();
+    }
 }

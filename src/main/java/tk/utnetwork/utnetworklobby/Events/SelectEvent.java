@@ -23,17 +23,27 @@ public class SelectEvent implements Listener {
             e.setCancelled(true);
             if (e.getSlot() == 10) {
                 p.closeInventory();
-                p.sendMessage(Utils.chat("%p[%sUT%p] Sending you to &fLifeSteal%s."));
+                p.sendMessage(Utils.chat("Sending you to &fLifeSteal%s."));
                 Utils.sendPluginMessage("Connect", p, "lifesteal", plugin);
             } else if (e.getSlot() == 13 || e.getSlot() == 16){
                 p.closeInventory();
-                p.sendMessage(Utils.chat("%p[%sUT%p] %tThis mode is currently unavailable, please try again later!"));
+                p.sendMessage(Utils.chat("%tThis mode is currently unavailable, please try again later!"));
 
             }
         } else if (e.getInventory().getTitle().equalsIgnoreCase("Profile Settings")) {
             e.setCancelled(true);
             if (e.getSlot() == 10) {
                 Utils.sendPluginMessage("CommandAsPlayer", p, "tpm", plugin);
+                p.closeInventory();
+            }
+
+            if (e.getSlot() == 28 && p.hasPermission("staff")) {
+                Utils.sendPluginMessage("CommandAsPlayer", p, "tsm", plugin);
+                p.closeInventory();
+            }
+
+            if (e.getSlot() == 31 && p.hasPermission("staff")) {
+                Utils.sendPluginMessage("CommandAsPlayer", p, "sc", plugin);
                 p.closeInventory();
             }
         }
