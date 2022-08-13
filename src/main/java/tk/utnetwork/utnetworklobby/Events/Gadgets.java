@@ -27,7 +27,9 @@ public class Gadgets implements Listener {
     public void onFish(PlayerFishEvent e) {
         Player p = e.getPlayer();
         if (e.getState().equals(PlayerFishEvent.State.FISHING)) return;
-        p.setVelocity(p.getLocation().getDirection().multiply(6.0).setY(1.25));
+        try {
+            p.setVelocity(p.getLocation().getDirection().multiply(6.0).setY(1.25));
+        } catch (Exception ex) { }
     }
 
     // SLOWBALLS
