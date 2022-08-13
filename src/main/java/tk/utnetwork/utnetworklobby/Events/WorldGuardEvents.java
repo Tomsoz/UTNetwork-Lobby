@@ -4,6 +4,8 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.ClickType;
@@ -51,5 +53,15 @@ public class WorldGuardEvents implements Listener {
     @EventHandler
     public void onHealthLoss(EntityDamageEvent e) {
         e.setCancelled(true);
+    }
+
+    @EventHandler
+    public void onBreak(BlockBreakEvent e) {
+        if (!e.getPlayer().hasPermission("lobby.break")) e.setCancelled(true);
+    }
+
+    @EventHandler
+    public void onPlace(BlockPlaceEvent e) {
+        if (!e.getPlayer().hasPermission("lobby.place")) e.setCancelled(true);
     }
 }
