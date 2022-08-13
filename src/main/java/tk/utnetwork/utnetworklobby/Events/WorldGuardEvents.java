@@ -12,6 +12,7 @@ import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
@@ -63,5 +64,10 @@ public class WorldGuardEvents implements Listener {
     @EventHandler
     public void onPlace(BlockPlaceEvent e) {
         if (!e.getPlayer().hasPermission("lobby.place")) e.setCancelled(true);
+    }
+
+    @EventHandler
+    public void onRain(WeatherChangeEvent e) {
+        e.setCancelled(e.toWeatherState());
     }
 }
